@@ -1,0 +1,6 @@
+PWD /home/pannenetsf/Documents/Subjects/ML
+INPUT /opt/texlive2020/texmf.cnf
+INPUT /opt/texlive2020/texmf-dist/web2c/texmf.cnf
+INPUT /opt/texlive2020/texmf-var/web2c/xetex/xelatex.fmt
+INPUT chap/chap.01whatisml.tex
+OUTPUT chap.01whatisml.log

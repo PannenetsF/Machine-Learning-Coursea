@@ -1,0 +1,197 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+% \documentclass{ctexbook}
+
+
+\input{../needed.tex}
+
+\begin{document}
+\fi 
+\def\chapname{01whatisml}
+
+    
+% Start Here
+
+\chapter{What is Machine Learning?}
+
+\section{Introduction}
+
+\begin{definition}[Machine Learning]
+    Field of study that gives computers thr ability to learn without being explicitly programmed.  (older, informal)
+
+    Improve performance from task experience. (more modern)
+    \begin{itemize}
+        \item A \textbf{task}
+        \item Some \textbf{experience}
+        \item Some way to \textbf{measure}
+    \end{itemize}
+\end{definition}
+
+
+
+Two board type of ML algorithms:
+\begin{itemize}
+    
+    \item Supervised Learning
+    \item Unsupervised Learning
+    
+\end{itemize}
+
+Others: 
+\begin{itemize}
+    \item Reinforcement Learning
+    \item Recommender Systems
+\end{itemize}
+
+\subsection{Supervised Learning} 
+
+Supervised learning has some known relationship between input and output.
+
+Supervised learning problems are categorized into \textbf{regression} and \textbf{classification} problems.
+
+Fitting a straight line or quadratic or 2nd-order curve to a function is a regression. The main idea is to give a continuous solution based on data we have.
+
+\begin{example}
+    Estimate weekly income of a company.
+\end{example}
+
+Estimating some possbility to be certain type or classification is also a supervised learning. 
+
+\begin{example}
+    Classify tumor type based on its size.
+\end{example}
+
+When the scale of classes turns to infinity, we need \textbf{Support Vector Machine}. 
+
+\subsection{Unsupervised Learning}
+
+Unsupervised learning has no specific relationship between input and output. Data has no lables, but the data could be devided into severval clusters.
+
+Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don't necessarily know the effect of the variables.
+
+\begin{example}
+    Two recordings of audio are mixed, and computer should get them departed.
+\end{example}
+
+\section{Linear Regression with One Variable}
+
+\subsection{Model and Cost Function}
+
+For a training set, Notation:
+
+\begin{itemize}
+    \item \(m\): number of training example
+    \item \(x\): input variable / features
+    \item \(y\): output variable / target variable
+\end{itemize}
+
+Learning algorithm applis to training set to find a \textbf{hypothesis} that could gives back a estimated answer. 
+
+The goal of supervised learing is to learn a function (hypothesis) from the training set.
+
+\subsection{Cost Function} 
+
+In a univariate problems, we have:
+
+\[
+h_\theta(x) = \theta_0 + \theta_1 x    
+\]
+
+And the \(\theta_i\) is so called \textbf{Parameters}.
+
+Regression is to minimize the difference between \(h(x)\) and \(y\). The cost function defined as: 
+
+\[
+J (\theta_0, \theta_1) = \frac{1}{2 m} \sum_{i = 0}^{m} \left(h_\theta(x^{(i)}) - y^{(i)}\right)^2
+\]
+
+Of course, for each parameters's vector we can compute its \(J\) value. Then we can get the global minimum to get the best fit curve. Later, we will learn an efficient algorithm to find the minimum cost.
+
+\section{Parameter Learning}
+
+Have some function \(J(\theta_0, \theta_1)\) and want to minimize it. Here is the outline:
+
+\begin{itemize}
+    \item start with some \(\theta_0, \theta_1\)
+    \item change the parameters until the loss has been minimized
+\end{itemize}
+
+We need a way to minimize loss function. 
+
+\subsection{Gradient Descent}
+
+At a parameters' place, take a little baby step to change. And choose the step direction that has the quickest reduction speed.
+
+And the process is to repeat the equantion until convergence:
+
+\[\theta_j := \theta_j - \alpha \frac{\pp{}}{\pp{\theta_j}}J(\theta_0, \theta_1), \text{where} j = 0, 1\]
+
+And \(\alpha\) is called \textbf{learning rate}， which controlls the step of learning. The partical or derivative part controlls the direction.
+
+If \(\alpha\) is too small, gradient descent can be really slow. But if it's too large, gradient descent may not converge or even diverge.
+
+
+With this algorithm and appropriate learning rate, the parameters are always towards an (local) optimal valley.
+
+\subsection{Gradient Descent for Linaer Regression}
+
+With gradient descent, we can handle with the cost function provided in previous sections.
+
+\[
+\begin{aligned}
+    J (\theta_0, \theta_1) &= \frac{1}{2 m} \sum_{i = 0}^{m} \left(h_\theta(x^{(i)}) - y^{(i)}\right)^2\\
+    \frac{\pp{}}{\pp{\theta_j}} J (\theta_0, \theta_1) &= \frac{1}{m} \sum_{i = 0}^{m} \frac{\pp{}}{\pp{\theta_i}} h_\theta(x^{(i)}) \left(h_\theta(x^{(i)}) - y^{(i)}\right)
+\end{aligned}
+\]
+
+Informally, \textbf{convex function} has no local optimum but only one global optimum.
+
+\textbf{Batch} gradient descent: each step takes all the training examples.
+
+
+\section{Linear Algebra Review}
+
+\subsection{Matrices and Vectors}
+
+\begin{definition}[Matrix]
+    Rectangular array of numbers, dimension of matrix is \# of rows times \# of columns.
+    For a matrix \(A\), its \((i,j)\) entry is writen as \(A_{ij}\).
+\end{definition}
+
+\begin{definition}[Vector]
+    Vector can be treated as a \(n \times 1\) matrix in \(\mathbb{R}^n\).
+\end{definition}
+
+
+\subsection{Addition and Scalar Multiplication}
+
+Matricx addition is to add elements at the same place of their matrix, of course, the matrices should have the same size. (element wise)
+
+Scalar multiplication is to multiply the scalar number to every element in the matrix.
+
+
+
+\subsection{Matrix Vector Multiplication}
+
+For a matrix and a vector to be multiplied, they should respectively has size of \(m \times n\), \(n \times 1\). This relationship of size accords to that the answer is the linear combination of columns of matrix with coefficient of respected vector elements.
+
+
+\subsection{Matrix Vector Multiplication}
+
+\subsection{Inverse and Transpose}
+
+\section*{Words}
+
+quadratic 二次的
+
+ellipse 椭圆
+
+contour 等高线，轮廓
+
+by convention 按照惯例
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
