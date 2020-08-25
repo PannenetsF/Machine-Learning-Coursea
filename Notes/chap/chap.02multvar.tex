@@ -1,0 +1,138 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{02multvar}
+
+% Start Here
+\chapter{Multivariate Linear Regression and Octave Tutorial}
+
+\section{Multivariate Linear Regression}
+
+With \textbf{Multivariate Linear Regression}, we can do predictions with more infomation. It appears that the expression will get more inputs or features.
+
+
+\begin{note}
+    \(x_j^{(i)}\) refers to the \(i^{th}\) training example's \(j_{th}\) feature value.
+\end{note}
+
+For example, for a n-varible hypothesis, its math form should be like:
+
+\[
+h_\theta(x) = \theta_0 + \theta_1 x_1 + \cdots + \theta_n x_n    
+\]
+
+Its vector form: 
+
+\[
+    x = \left[\begin{tabular}{c}
+        \(x_0\)\\
+        \(x_1\)\\
+        \(\vdots\)\\
+        \(x_n\)
+    \end{tabular}\right] \in \mathbb{R}^{n+1}, 
+        \theta = \left[\begin{tabular}{c}
+            \(\theta_0\)\\
+            \(\theta_1\)\\
+            \(\vdots\)\\
+            \(\theta_n\)
+        \end{tabular}\right] \in \mathbb{R}^{n+1},
+        \text{where } x_0 = 1 
+\]
+
+\[h_\theta(x) = \theta_0 + \theta_1 x_1 + \cdots + \theta_n x_n     = \theta^T\]
+
+
+
+\section{Gradient Descent for Multiple Varibles}
+
+For n-varible hypothesis, the cost function expresses like:
+
+\[J(\theta) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^(i)) - y^{(i)})^2\]
+
+So the gradient descent performs like:
+
+\[\begin{aligned}
+    \theta_j := \theta_j - \alpha \frac{1}{m} \sum_{i = 0}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}, \text{where } \theta = 0, 1, 2, \cdots , n
+\end{aligned}\]
+
+\section{Gradient Descent in Practice}
+
+After the basic knowledge introduced, we are going to learn something in practice.
+
+\subsection{Feature Scaling}
+
+Make sure features are on a similar scale and the cost function can converge more quickly. If \(x_1 \in (0, 2000)\) and \(x_2 \in (1, 5)\), the step of gradient descent may fit with \(x_2\) but be too small to quickly converge.
+
+A typical and useful opration is to scale feature into \((0, 1)\). More generally, get every feature into approximately a \([-1, 1]\) range. 
+
+Or take mean normalization. Replace \(x_i\) with \(x_i - \mu_i\) or \({(x_i - \mu_i)}/{(\max(x)-\min(x))}\) to make features have approximately zero mean. 
+
+\subsection{Learning Rate}
+
+Make sure that gradient descent is working correctly, that is \(J(\theta)\) should decrease after each iteration. 
+
+We can do automatic convergence test that if the decrease of \(J(\theta)\)  is less that a threshold, we declare the convergence.
+
+If the \(\alpha\) is  too large, the loss may not converge or even diverge. If too small, it will take too long time to end the task.
+
+\section{Features and Polynomial Regression}
+
+Sometimes a straight line model would not fit a curve well, so that we choose polynomial regression to fit it with a polynomial.
+
+For example, a 3-order polynomial like \(\theta_0 + \theta_1 x + \theta_2 x^2 + \theta_3 x^3\), we can do mapping like 
+
+\[x \rightarrow x_1, x^2 \rightarrow x_2, x^3 \rightarrow x_3\]
+
+Of course, in this example it's important to do scaling.
+
+\section{Computing Parameters Analytically}
+
+\subsection{Normal Equation}
+
+Normal equantion is a method to solve for \(\theta\) analytically.
+
+Using calculus we can solve for the global optimal for equation (single or multiple varibles).
+
+Or, we can display our data in matrix form, then use the least square method.
+
+For features, use \(X\); for outputs, use \(Y\):
+
+\[
+    X = \left[\begin{tabular}{c}
+        \((x^{(0)})^T\)\\
+        \((x^{(1)})^T\)\\
+        \(\vdots\)\\
+        \((x^{(n)})^T\)\\
+    \end{tabular}\right] \in \mathbb{R}^{n+1},
+    Y = \left[\begin{tabular}{c}
+        \(y^{(0)}\)\\
+        \(y^{(1)}\)\\
+        \(\vdots\)\\
+        \(y^{(n)}\)\\
+    \end{tabular}\right] \in \mathbb{R}^{n+1}
+\]
+
+With least square method, get \(\Theta\) like:
+
+\[\Theta = (X^T X)^{-1}X^T Y\]
+
+In Octave, it could compute by \lstinline{pinv(x'*t)*x'*y}.
+
+With normal equation, you do not need to choose a \(\alpha\) and to iterate. BUT, when the dimesion is large, the computation \((X^T X)^{-1}\) could be very slow (it's a \(O(n^3)\) algorithm). With gradient descent, it could work well even dimesion is large.
+
+\subsection{Normal Equation Noninvertibility}
+
+What will happen if \(X^T X\) is not invertible? The pseudo inverse is used when \begin{itemize}
+    \item redundant features / linearly dependent 
+    \item too many features 
+\end{itemize}
+
+
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
