@@ -129,6 +129,54 @@ What will happen if \(X^T X\) is not invertible? The pseudo inverse is used when
     \item too many features 
 \end{itemize}
 
+\section{Octave Tutorial}
+
+Octave is a good language for algorithm prototyping. 
+
+\subsection{Basic Operations}
+
+In fact, it's just so similar to MATLAB. For example, the \lstinline{ones, zeros, eye, rand}, and the vector form.
+
+\begin{ocode}
+    w = rand(1, 10000) + (-6) % uniform distribution
+    hist(w, 100)
+\end{ocode} 
+
+
+\begin{ocode}
+    w = randn(1, 10000) + (-6) % normal distribution
+    hist(w, 100)
+\end{ocode} 
+
+\subsection{Moving Data Around}
+
+It's about how to move data into Octave for certain tasks. 
+
+For data file, use the \lstinline{load} and \lstinline{save}. For matrix, use the column and row index with ":", like \lstinline{vec(col1:col2)} and matrix concat could be rather easy, like \lstinline{c = [a b]}.
+
+\subsection{Computing on Data}
+
+For coresponding or elemenet-wise operations, there is a dot sign befor the opration, like \lstinline{c = a .* b}, where a and b get the same size. Without the dot sign, it will be a matrix multiplication. And transpose is important to matrix which is bind to quatation mark, like \lstinline{AT = A'}.
+
+For most functions, they could be applied to vector or matrix form, like \lstinline{abs([1,-2,3])}, \lstinline{a = [1 3 5 -9]; a_b = a > 2}.
+
+
+
+Some functions:
+
+\begin{enumerate}
+    \item \lstinline{magic}: return a n by n magic square matrix
+    \item \lstinline{sum}: return sum of matrix
+    \item \lstinline{prod}: return prod of matrix
+    \item \lstinline{A(:)}: turn A into a vector
+\end{enumerate}
+
+
+\section*{Words}
+
+prototyping 原型设计
+
+clunky 笨重的
 
 % End Here
 
