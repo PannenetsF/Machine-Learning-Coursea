@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.6)  26 AUG 2020 22:10
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.7.6)  27 AUG 2020 22:48
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1260,32 +1260,31 @@ LaTeX Font Warning: Font shape `TU/fvm/m/n' undefined
 (Font)              using `TU/lmr/m/n' instead on input line 121.
 
 [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
+Overfull \hbox (0.48912pt too wide) in paragraph at lines 161--162
+[]\TU/fvm/m/n/10.95 For most functions, they could be applied to vector or matrix form, like [][][]
+ []
+
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 194.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 194.
  (./chap.02multvar.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 161.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 194.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 194.
+Package rerunfilecheck Info: File `chap.02multvar.out' has not changed.
+(rerunfilecheck)             Checksum: 65B6C584327F0DDBC6116E9A257AD7FF;1711.
 
-
-Package rerunfilecheck Warning: File `chap.02multvar.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `chap.02multvar.out':
-(rerunfilecheck)             Before: 45125FC9D31C6732C89124F9D9AB6201;1557
-(rerunfilecheck)             After:  65B6C584327F0DDBC6116E9A257AD7FF;1711.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  )
-(\end occurred when \ifx on line 160 was incomplete) 
+(\end occurred when \ifx on line 193 was incomplete) 
 Here is how much of TeX's memory you used:
- 38827 strings out of 479418
- 797631 string characters out of 5887666
- 1451595 words of memory out of 5000000
- 55591 multiletter control sequences out of 15000+600000
+ 38903 strings out of 479418
+ 798371 string characters out of 5887666
+ 1459595 words of memory out of 5000000
+ 55667 multiletter control sequences out of 15000+600000
  541741 words of font info for 65 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  67i,12n,126p,919b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on chap.02multvar.pdf (3 pages).
+Output written on chap.02multvar.pdf (4 pages).
