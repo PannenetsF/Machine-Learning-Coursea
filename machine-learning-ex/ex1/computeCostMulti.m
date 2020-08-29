@@ -14,6 +14,9 @@ J = 0;
 %               You should set J to the cost.
 
 
+sq = (X * theta - y).^2 ;
+
+J = sum(sq) / (2*m);
 
 
 
