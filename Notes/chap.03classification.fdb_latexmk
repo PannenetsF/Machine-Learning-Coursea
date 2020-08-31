@@ -1,0 +1,9 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "chap.03classification.xdv" "chap.03classification.pdf" "chap.03classification" 0
+  "chap.03classification.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "chap.03classification.pdf"
+["xelatex"] 1598880576 "/chap/chap.03classification.tex" "chap.03classification.xdv" "chap.03classification" 1598880582
+  (generated)
+  "chap.03classification.xdv"
+  "chap.03classification.log"
