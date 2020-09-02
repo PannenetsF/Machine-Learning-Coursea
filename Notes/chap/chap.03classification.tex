@@ -117,7 +117,7 @@ Let's re-write the cost function in a more compact way as:
 \[
 \begin{aligned}
     J(\theta) &= \frac{1}{m} \sum_{i = 1}^m \text{Cost} (h_\theta(x^{(i)}, y^{(i)}) \\
-    &=  -\frac{1}{m}\left[y^{(i)} \log (h_\theta(x^{(i)})) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\right]
+    &=  -\frac{1}{m}\sum_{i=1}^m\left[y^{(i)} \log (h_\theta(x^{(i)})) + (1-y^{(i)}) \log (1-h_\theta(x^{(i)}))\right]
 \end{aligned}    
 \]
 
@@ -168,13 +168,13 @@ If we want to address the overfitting, we can
 
 If we want to make some parameters really small, we can add some terms like:
 
-\[J(\theta) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^(i)) - y^{(i)})^2
+\[J(\theta) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})^2
 + 1000 \theta_3^2 + 1000 \theta_4^2
 \]
 
 Small parameters will turn to simpler hypothesis and get more smoth and less prone to overfit. If we want to shrink all parameters, the cost could be implemented as\footnote{remeber that: \(\theta\) starts with 0, but we just ignore the first term }:
 
-\[J(\theta) = \frac{1}{2m}\left[\sum_{i=1}^m(h_\theta(x^(i)) - y^{(i)})^2 + \lambda \sum_{i=1}^m\theta_i^2 \right]\]
+\[J(\theta) = \frac{1}{2m}\left[\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{i=1}^n\theta_i^2 \right]\]
 
 The latter term is called regularization term. The regularization will put off a more general hypothesis.
 
@@ -185,7 +185,7 @@ If we do gradient descent, the gradient will be different for \(\theta_0\) becau
 
 \[\theta_j := \left\{
     \begin{aligned}
-     \theta_j - \alpha \frac{1}{m} \sum_{i = 0}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}+ \frac{\lambda}{m}\theta_j, &\text{ where } \theta = 1, 2, \cdots , n\\
+     \theta_j - \alpha \frac{1}{m} \left[ \sum_{i = 0}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}+ \frac{\lambda}{m}\theta_j\right], &\text{ where } \theta = 1, 2, \cdots , n\\
      \theta_j - \alpha \frac{1}{m} \sum_{i = 0}^m (h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}, &\text{ where } \theta = 0
 \end{aligned}\right.\]
 

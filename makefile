@@ -1,3 +1,8 @@
+all:
+	make slides
+	make notes
+	make clean
+
 slides:
 	cd Slides/ \
 	&& latexmk -xelatex slide.tex \
