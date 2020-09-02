@@ -139,9 +139,63 @@ We can just simply call \lstinline{fminunc} to get gradient descent.
 
 \section{Multi-class Classification}
 
-\section{Solve Overfitting}
+
+For multiclass problem, we can encode each class with some num like 1, 2, 3, 4 and so on.
+One-verse-all algorithm is to seperate different class to a special postive class in turn. Or: train a logistic regersss     classifier \(h_\theta^{(i)}(x)\) for each class \(i\) to predict the probability that \(y = i\). Finally, pick the \(\max_i h_\theta^{(i)}(x)\).
+
+\section{Solve Overfitting: Regularization}
+
+\subsection{The Problem of Overfitting}
+
+What's overfitting? If a little bit more complicate dataset cannot be fitted with a line, the linear fit will have a high preconception or bias(underfitting). If we apply a polynomial regression with too high order, hte learned hypothesis will fit the dataset very well but fall to have the ablity to generalize the problem(overfitting).
+
+If we want to address the overfitting, we can
+
+\begin{itemize}
+    \item reduce number of features
+    \begin{itemize}
+        \item manually select features to keep
+        \item model selecttion algorithm
+    \end{itemize}
+    \item aplly regularization
+    \begin{itemize}
+        \item keep all features, but reduce magnitude or value of some parameters \(\theta_j\)
+        \item works well when get lots of features
+    \end{itemize}
+\end{itemize}
+
+\subsection{Cost Function for Regularization}
+
+If we want to make some parameters really small, we can add some terms like:
+
+\[J(\theta) = \frac{1}{2m}\sum_{i=1}^m(h_\theta(x^(i)) - y^{(i)})^2
++ 1000 \theta_3^2 + 1000 \theta_4^2
+\]
+
+Small parameters will turn to simpler hypothesis and get more smoth and less prone to overfit. If we want to shrink all parameters, the cost could be implemented as\footnote{remeber that: \(\theta\) starts with 0, but we just ignore the first term }:
+
+\[J(\theta) = \frac{1}{2m}\left[\sum_{i=1}^m(h_\theta(x^(i)) - y^{(i)})^2 + \lambda \sum_{i=1}^m\theta_i^2 \right]
+
+\]
+
+The latter term is called regularization term. The regularization will put off a more general hypothesis.
+
+Regularization.
+
+\section*{Words}
+
+ameliorate 改善
+
+preconception 偏见
+
+contort 曲解
+
+penalize 惩罚
+
+prone 倾向
 
 % End Here
+
 
 
 

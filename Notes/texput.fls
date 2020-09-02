@@ -1,5 +1,0 @@
-PWD /home/pannenetsf/Documents/Subjects/ML/Notes
-INPUT /opt/texlive2020/texmf.cnf
-INPUT /opt/texlive2020/texmf-dist/web2c/texmf.cnf
-INPUT /opt/texlive2020/texmf-var/web2c/xetex/xelatex.fmt
-OUTPUT texput.log

@@ -1,0 +1,63 @@
+\documentclass[en,11pt,english,black,simple]{elegantbook}
+\def\mainclass{main}
+
+\title{Machine Learning}
+% \subtitle{数字设计初步}
+
+\author{Pannenets.F}
+% \institute{微电子学院}
+\date{\today}
+% \version{4}
+
+\extrainfo{Je reviendrai et je serai des millions. —— <<Spartacus>>}
+\setcounter{tocdepth}{3}
+
+\lstset{
+  mathescape = false}
+% \logo{logo-blue.png}
+\cover{logo.jpg}
+
+\input{needed.tex}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\chapter*{Introduction}
+\markboth{Introduction}{前言}
+
+Nothing.
+
+\vskip 1.5cm
+
+
+\begin{flushright}
+Pannenets F
+\today
+\end{flushright}
+
+\tableofcontents
+%\listofchanges
+
+\mainmatter
+
+\part{part}
+
+\input{chap/chap.00welcome.tex}
+
+\input{chap/chap.01whatisml.tex}
+
+\input{chap/chap.02multvar.tex}
+
+\input{chap/chap.03classification.tex}
+
+\chapter{chap}
+
+\section{sec}
+
+
+
+
+
+\end{document}

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.31)  31 AUG 2020 21:46
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020) (preloaded format=xelatex 2020.8.31)  2 SEP 2020 11:28
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1107,20 +1107,29 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 137.
+Missing character: There is no 改 in font ntx-Regular-tlf-t1!
+Missing character: There is no 善 in font ntx-Regular-tlf-t1!
  [3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
  (./chap.03classification.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
-Package rerunfilecheck Info: File `chap.03classification.out' has not changed.
-(rerunfilecheck)             Checksum: A897EBBB51EE8C3367A37C1BD411D4A0;380.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
+
+
+Package rerunfilecheck Warning: File `chap.03classification.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `chap.03classification.out':
+(rerunfilecheck)             Before: A05CFA6567DE3DE96E7C8B22E8BA3623;952
+(rerunfilecheck)             After:  A897EBBB51EE8C3367A37C1BD411D4A0;380.
  )
-(\end occurred when \ifx on line 149 was incomplete) 
+(\end occurred when \ifx on line 160 was incomplete) 
 Here is how much of TeX's memory you used:
  33244 strings out of 479699
  631076 string characters out of 5892069
- 1240534 words of memory out of 5000000
+ 1240637 words of memory out of 5000000
  49806 multiletter control sequences out of 15000+600000
  568965 words of font info for 59 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
