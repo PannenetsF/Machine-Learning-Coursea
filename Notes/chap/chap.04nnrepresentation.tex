@@ -1,0 +1,75 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{04nnrepresentation}
+
+% Start Here
+\chapter{Neural Network: Representation}
+
+\section{Neural Network's Motivation}
+
+Neural Network has appeared for a long time and become state-of-the-art technique recently.
+
+\subsection{Non-linear Hypotheses}
+
+In non-linear classification, there could be a LOT of parameters or features.
+
+For example, a image classifier get input in a matrix form. We need to allocate some certain pixels to a space, then classify the sample space. If a image has a size of \(50 \times 50\) then the quadratic features could be \((2500)^2/2\approx 3 \times 10^6\). So, this kind of classifier could have realy lots of features.
+
+\subsection{Neurons and the Brain}
+
+We will get to know some background of NNs, and have a sense of what they do.
+
+The NN algorithms are aimed to mimic the brain's work. Though it could do many many things like math, writings, only "the one learning algorithm" is needed.
+
+\subsection{Model Representation}
+
+We will learn how to represent hypothesis in NN model.
+
+Features are input, the hypothesis is output, and we need something between them. Input sometimes gets an extra \textbf{bias}. The previous \(\theta\) is called parameters.
+
+The NN is just putting every features strong together. Normally, the first layer is called input layer, the last is called output layer and the else are called the hidden layers.
+
+Let's define some symbols:
+\begin{itemize}
+    \item \(a_i^{(j)}\): activation of unit \(i\) in layer \(j\)
+    \item \(\Theta^{(j)}\): matrix of weights controlling functions mapping from layer \(j\) to layer \(j+1\)
+\end{itemize}
+
+For example, if layer 1 gets 2 input and the layer 2 gets 4 input, the \(\Theta^{(1)}\) will have a size of \(4 \times 3\). Then let's vectorize the representation. That is\footnote{by default, bias is set to 1}: 
+
+\[X^{(j+1)} = g \left(\Theta^{(i)} \times \left[\begin{aligned}
+    bias^j\\
+    X^j    
+\end{aligned}\right]\right)\]
+
+The architectures are how the neurons are connected.
+
+\section{Applications of NNs}
+
+We can adjust the weights of an one-layer network wo get AND or OR functions. But XOR needs two layers. 
+
+Deeper networks could compute more complex features.
+
+\section{Multi-Class Classification}
+
+Still, we will apply "one-vs-all" algorithm in NN method.
+
+
+
+
+\section*{Word}
+
+resurgence 复兴
+
+cortex 皮质层
+
+dendrite 树突
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
