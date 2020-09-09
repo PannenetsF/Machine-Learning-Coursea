@@ -39,6 +39,28 @@ Theta2_grad = zeros(size(Theta2));
 %         cost function computation is correct by verifying the cost
 %         computed in ex4.m
 %
+
+
+
+a1 = [ones(size(X,1),1),X];
+z2 = a1 * Theta1';
+a2 = [ones(size(z2,1),1),sigmoid(z2)];
+z3 = a2 * Theta2';
+a3 = sigmoid(z3);
+
+h = (a3);
+
+y_l = zeros(size(y),num_labels);
+
+for i = 1:size(y,1)
+  y_l(i,(y(i)))=1;
+endfor
+
+J = 1/m * sum(sum(-y_l .* log(h) - (1-y_l) .* log(1-h)));
+
+
+
+
 % Part 2: Implement the backpropagation algorithm to compute the gradients
 %         Theta1_grad and Theta2_grad. You should return the partial derivatives of
 %         the cost function with respect to Theta1 and Theta2 in Theta1_grad and
@@ -47,13 +69,28 @@ Theta2_grad = zeros(size(Theta2));
 %
 %         Note: The vector y passed into the function is a vector of labels
 %               containing values from 1..K. You need to map this vector into a 
-%               binary vector of 1's and 0's to be used with the neural network
+%              binary vector of 1's and 0's to be used with the neural network
 %               cost function.
 %
 %         Hint: We recommend implementing backpropagation using a for-loop
 %               over the training examples if you are implementing it for the 
 %               first time.
-%
+
+D2 = zeros(size(Theta2));
+D1 = zeros(size(Theta1));
+
+
+
+d3 = a3 - y_l;
+d2 = d3 * Theta2(:,2:end).* sigmoidGradient(z2);
+
+D2 = D2 + (d3' * a2);
+D1 = D1 + (d2' * a1);
+
+Theta1_grad = D1/m;
+Theta2_grad = D2/m;
+
+
 % Part 3: Implement regularization with the cost function and gradients.
 %
 %         Hint: You can implement this around the code for
@@ -64,19 +101,15 @@ Theta2_grad = zeros(size(Theta2));
 
 
 
+t1 = Theta1;
+t1(:,1)=0;
+t2 = Theta2;
+t2(:,1)=0;
 
+Theta1_grad += t1 * lambda/m;
+Theta2_grad += t2 * lambda/m;
 
-
-
-
-
-
-
-
-
-
-
-
+J += lambda/m/2 * (sum(sum(t1.*t1))+sum(sum(t2.*t2)));
 
 
 

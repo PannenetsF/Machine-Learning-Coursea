@@ -100,8 +100,47 @@ What do forward propagation do in the NNs? Doing non-linear matrix multiplicatio
 
 \section{Backpropagation in Practice}
 
-\section{Application of Neural Network}
+\subsection{Advanced Optimization}
 
+Learn to unroll parameters matrices into vectors. 
+
+\begin{lstlisting}
+thetaVec = [Theta1(:); Theta2(:)];
+\end{lstlisting}
+
+The unrolled weights could be passed into \lstinline{fminunc(@cost, initTheta, option)}, where the \lstinline{cost} takes the unrolled vectors.
+
+\subsection{Gradient Checking}
+
+There could be some subtile bugs, so we need to check gradient.
+
+We need to numerially compute the  gradient at a point, and it just needs 
+
+\[\frac{\dd{}}{\dd{\theta}}J(\theta) \approx \frac{J(\theta + \epsilon) - J(\theta - \epsilon)}{2 \epsilon}\]
+
+As for every parameter in the big vector, we can apply this by treat others as constant. Then we need to check that \(gradApprox \approx DVec\). Besides remember to disable check when you are training. 
+
+\subsection{Random Initialization}
+
+For gradient descent and other advanced methods we need to initialize all weight. If we set all weights to zero, the gradient will be all the same for each value will be zero and all weights in the same layer are in the identical.
+
+To get through this, random initialization is applied. The key idea is to break symmetry. 
+
+\subsection{Putting It Together}
+
+Let's do some overall summary of neural network.
+
+First we need a neural network architecture (a connectivity pattern between neurons). The number of input units is the dimension of features. The number of output units is the number of classes.
+
+Then we need randomly initialize weights and implement the forward propagation. compute the cost function and do back propagation for partial derivatives. Of course we need to compute the gradient checking and after that remember to disable it. Finally, use something to compute.
+
+
+
+\section{Application of Neural Network: Autonomous Driving}
+
+\section*{Word}
+
+subtile 微妙的
 
 % End Here
 
