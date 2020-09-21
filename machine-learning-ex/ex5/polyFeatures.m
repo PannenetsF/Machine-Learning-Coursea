@@ -15,7 +15,8 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
-
+pow_x = 1:p;
+X_poly = (X*ones(1,p)).^pow_x;
 
 
 
