@@ -79,7 +79,22 @@ If trapped in high bias, finally we will get \(J_{cv} = J_{train}\). So, if algo
 
 If trapped in high variance, more data will help.
 
+\subsection{Decide What to Do next}
 
+All we mentioned told us what's useful for our ML work. Let's have a summary:
+
+\begin{itemize}
+    \item Get more training examples to fix high variance
+    \item Try less sets of features to fix high vairan  
+    \item Try more features to fix high bias 
+    \item Try more polynomial features to fix high bias 
+    \item Try decreasing \(\lambda\) to fix high bias 
+    \item Try increasing \(\lambda\) to fix high variance 
+\end{itemize}
+
+Small NNs has fewer parameters and more prone to underfitting. Large ones have more parameters and likely t overfitting and \textbf{MORE EXPENSIVE}. Try regularization to address overfitting.
+
+Low order polynomials have high bias and load variance, while high order polynomials have high variance and low bias. 
 
 \section*{Word}
 sad
