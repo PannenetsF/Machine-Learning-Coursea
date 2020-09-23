@@ -96,9 +96,58 @@ Small NNs has fewer parameters and more prone to underfitting. Large ones have m
 
 Low order polynomials have high bias and load variance, while high order polynomials have high variance and low bias. 
 
+
+\section{Build a Classifier}
+
+It's a problem about 1 and 0. We need \(x \) as the features of mails and \(y\) is the class of the mails. 
+
+First choose some features that indicative of spam or not.
+
+How to make it have low error ? 
+
+\begin{itemize}
+    \item collect lots of data 
+    \item develop sophisticated features based on email routing info from email header.
+    \item develop sophisticated features for the message 
+    \item develop algorithm for misspellings 
+\end{itemize}
+
+\subsection{Error Analysis}
+
+Recommended approach:
+
+\begin{itemize}
+    \item Start with a simple algorithm that can implement very quickly. 
+    \item Plot learning curves to decide if more data, more features that could help.
+    \item Error analysis, manually examine the examples. 
+\end{itemize}
+
+Usually over the evaluation set. 
+
+\subsection{Error Metrics for Skewed Classes}
+
+If the data is skewed to a side, the model's precision is not so impressive.
+
+Use precision and recall. Like true positive, false positive, false positive and true negative. You get the precision and recall to see the prediction and the actual fact.
+
+Then we need to trade off between precision and recall. If we want to predict 1, we have to be very confident. On the other hand we need to avoid false negatives.
+
+We can use the \textbf{F score}. Simply, take the average. But the importance is different for the two part. The F score takes the \(2 P R / (P + R)\).
+
+\section{Data for Machine Learning}
+
+First need to assume the amount of features has sufficient information to predict the answer accurately.
+
+A very large dataset is more unlikely to overfit.
+
+
+
 \section*{Word}
-sad
+
+
 Avenues 途径
+
+winnow 筛选
 % End Here
 
 \let\chapname\undefined
