@@ -1,0 +1,49 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{07optimibj}
+
+% Start Here
+\chapter{Optimization Objective}
+
+\section{Optimization Objective}
+
+We will introduce supported vector machine, which is supervised. 
+
+For a sigmoid function, if the y = 1, we want the \(h_\theta(x)\approx 1\) and \(\theta^T x \gg 0\). 
+
+Support vector machine simplifies the cost function of logistic regression into a straight line. 
+
+\[J(\theta) = \frac{1}{m}\left[\sum_{i = 1}^{m} y^{(i)} \text{cost}_1 (\theta^T x^{(i)}) + (1 - y^{(i)}) \text{cost}_0 (\theta^T x^{(i)})\right] + \frac{\lambda}{2 m} \sum_{i = 0}^n \theta_i^2\]
+
+As the SVM is two order, the co-efficient before the expression could be dismissed. 
+
+The hypothesis will be this: 
+
+\[h_\theta(x) = 1 \text{ if } \theta^T x \leq 0; 0, \text{ else}\]
+
+\section{Large Margin Intuition}
+
+SVM is called large margin intuition sometimes. The threshold 1 and -1 make the SVM "safer". 
+
+SVM would give a decision boundary that seperate the region with a margin. A large co-efficient will turn the SVM to a sensitive one.
+
+The SVM decision boundary is decided by inner product.
+
+\section{Kernels}
+
+If we need a non-linear decision boundary, we can apply some landmarks and compute new features depending on proximity to landmarks.
+
+The similarity could be expressed as:
+
+\[\text{similarity}(x, l^{(i)}) = \exp(-\frac{||x-l^{(i)}||^2}{2 \sigma^2s})\] 
+
+It's called Guass Kernel, for it's based on Guass Distribution. The problem is how to get the landmarks.
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
