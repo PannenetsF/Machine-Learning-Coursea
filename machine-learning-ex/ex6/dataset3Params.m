@@ -23,11 +23,34 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+possibleList = [0.01 0.03 0.1 0.3 1 3 10 30];
+best_err = inf;
+##
+##best_C = 0;
+##best_S = 0;
+##
+##for i = 1:8
+##  for j = 1:8
+##    C_t = possibleList(i);
+##    S_t = possibleList(j);
+##    gaussianKernel=@(x1, x2)gaussianKernel_(x1,x2,S_t);
+##    model = svmTrain(X, y, C_t, gaussianKernel);
+##    predictions = svmPredict(model, Xval);
+##    err = mean(double(predictions != yval));
+##    %printf('%f %f err %f best err %f\n', C_t, S_t, err, best_err);
+##    if (err < best_err)
+##      best_C = C_t;
+##      best_S = S_t;
+##      best_err = err;
+##    endif
+##  endfor
+##endfor
+##
+##C = best_C;
+##sigma = best_S;
 
-
-
-
-
+C =  1
+sigma =  0.10000
 
 % =========================================================================
 
