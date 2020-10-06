@@ -41,6 +41,24 @@ The similarity could be expressed as:
 \[\text{similarity}(x, l^{(i)}) = \exp(-\frac{||x-l^{(i)}||^2}{2 \sigma^2s})\] 
 
 It's called Guass Kernel, for it's based on Guass Distribution. The problem is how to get the landmarks.
+
+But how to choose the landmarks? We can set the training examples as landmarks. With all the landmarks we can get a feature vector contains the similarity of each landmarks. 
+
+So for a SVM with kernels we can predict \(y = 1\) if \(\theta^T f \ge 0\). The training is to :(ingore the \(\theta_0\) for the squared items)
+\[\min \left[C \sum_{i = 1}^m y^{(i)} cost_1 (\theta^T f^{(i)}) + (1-y^{(i)}) cost_0 (\theta^T f^{(i)}) + \frac{1}{2}\sum_{j=1}^{m}\theta_j^2\right]\]
+
+We need to apply the scaling to avoid a very BIG distance in the Guassian Kernel.
+
+\section{SVM and Logistic regression}
+
+If number of features is large, use logistic regression or SVM with linear kernel.
+
+If n is small, m is intermediate, use SVM with Guassian Kernel.
+
+If n is small, m is large, add some features then use logistic regression or SVM with linear kernel.
+% \section{Multi-Class SVM}
+
+
 % End Here
 
 \let\chapname\undefined
