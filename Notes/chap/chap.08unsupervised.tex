@@ -1,0 +1,50 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{08unsupervised}
+
+% Start Here
+\chapter{Unsupervised Learning}
+
+\section{Introdoction}
+
+In unsupervised learning, data come without data lables and the algorithm is going to cluster the data. 
+
+\section{K-Means Algorithm}
+
+The algorithm has Cluster centroid. 
+
+Cluster assignment, assign different data into different centroids. Then update the centroid to the new center which is the mean of the data belong to the center. And then repeat the two steps.  
+
+\section{Optimization Objective}
+
+The cost function: 
+
+\[J = \frac{1}{m} \sum_{i=1}^m ||x^{i} - \mu _{c^i}\]
+
+\section{Random Initialization}
+
+How to choose the initial K cluster centroid? For the dataset size \(m\), we need \(K < m\) training examples as centroids. 
+
+And the K-means could have local optima, just repeat the whole algorithm more times. 
+
+\section{Choose the Number of Clusters}
+
+With the elbow method, find the 'elbow' of \(Cost(J)-K(\# of clusters)\) plot.
+
+\chapter{}{Dimensionality Reduction}
+
+\section{Motivation}
+
+We need \textbf{data compression} for some features are highlu co-related and this could relieve the memory requirement. 
+
+We need \textbf{data visualization} 
+
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
