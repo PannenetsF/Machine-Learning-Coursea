@@ -22,7 +22,11 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
+for i = 1:size(X,1)
+  distance = sum((X(i,:)-centroids).^2,2);
+  [m,idx_c] = min(distance);
+  idx(i) = idx_c;
+endfor
 
 
 

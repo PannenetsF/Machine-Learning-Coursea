@@ -27,8 +27,11 @@ centroids = zeros(K, n);
 %
 
 
-
-
+for i = 1:K
+  mask = idx == i;
+  av = 1/sum(mask) * sum(X.*mask);
+  centroids(i,:) = av;
+endfor
 
 
 
