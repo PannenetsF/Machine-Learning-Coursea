@@ -1,0 +1,53 @@
+\ifx\mainclass\undefined
+\documentclass[en,11pt,english,black,simple]{../elegantbook}
+\input{../needed.tex}
+\begin{document}
+\fi 
+\def\chapname{09AnomalyDetection}
+
+% Start Here
+\chapter{Anomaly Detection}
+
+
+\section{Motivation}
+
+To tell something is working anomalously. The center is \(p(x) < \epsilon\) .
+
+For example, it could be applied to fraud detection. 
+
+\section{Gaussian Distribution }
+
+If \(x\) is a distributed Guassian with mean \(\mu\) and variance \(\sigma^2\), it's \(x \sim N(\mu, \sigma^2) \)
+
+With Guassian Distribution, we can estimate a dataset: 
+
+\[\begin{aligned}
+    \mu &= \frac{1}{m} \sum_{i=1}^m x^{(i)} \\
+    \sigma^2 &= \frac{1}{m} \sum_{i=1}^m (x^{(i)}-\mu)^2 
+\end{aligned}\]
+
+\section{Density Estimation} 
+
+Every componets will be a normal distribution. 
+
+\section{Developing and Evaluating an Anomaly Detection System}
+
+If we have some labeled data, part of them are anomalous and non-anomalous. Then we can compute whether an example is normal or not.
+
+
+\section{Multivariate Gaussian Distribution}
+
+Model the \(x\) rather than \(x_i\) separately. Then \(\mu \in \mathbb{R}\) and \(\Sigma \in \mathbb{R}^{n\times n}\) .
+
+\[p(x,\mu,\Sigma) = \frac{1}{(2\pi)^{1/2}|\Sigma|^{1/2}} \exp(-\frac{1}{2}(x-\mu)^T \Sigma^{-1} (x-\mu))\] 
+
+This could automatically captures correlations between features. (Need: \(m > 10 n\)) It's more expensive than original model.
+
+
+% End Here
+
+\let\chapname\undefined
+\ifx\mainclass\undefined
+\end{document}
+\fi 
+
